@@ -7,9 +7,20 @@ public class Result : MonoBehaviour
 {
     public TMP_Text[] numberTexts;  // Referencia a los textos que contienen los números generados
     public TMP_Text resultText;     // Texto que mostrará el resultado
+    public int maxRepetitions;
 
     // Método que cuenta cuántas veces se repite el número que más veces aparece
     void Update()
+    {
+        
+    }
+
+    public void ButtonPress()
+    {
+        Invoke("CheckNumbers", 5);
+    }
+
+    public void CheckNumbers()
     {
         Dictionary<int, int> numberCount = new Dictionary<int, int>();
         int[] numbers = new int[numberTexts.Length];
@@ -35,7 +46,7 @@ public class Result : MonoBehaviour
         }
 
         // Encuentra el número con más repeticiones
-        int maxRepetitions = 0;
+        maxRepetitions = 0;
         foreach (var pair in numberCount)
         {
             if (pair.Value > maxRepetitions)

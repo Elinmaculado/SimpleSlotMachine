@@ -6,10 +6,13 @@ using UnityEngine.UI;
 
 public class SetMoney : MonoBehaviour
 {
-    public TMP_Text text; // Asigna este campo en el Inspector
+    public TMP_Text moneyText;
+    public TMP_Text betText;
+    public Button plusButton;
+    public Button minusButton;
     private Result result;
     public float money = 100;
-    public float bettingMoney;
+    public float bettingMoney = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -49,7 +52,49 @@ public class SetMoney : MonoBehaviour
             break;
 
         }
-        text.text = money.ToString(); // Actualiza el texto con la variable del otro script
+        
 
+    }
+
+    public void PlusButton()
+    {
+        bettingMoney += 5;
+        money -= 5;
+    }
+
+    public void MinusButton()
+    {
+        if (bettingMoney < 0)
+        {
+            return;
+        }
+        else
+        {
+            bettingMoney -= 5;
+            money += 5;
+        }
+    }
+
+    public void Update()
+    {
+        if (money <= 0)
+        {
+            plusButton.interactable = false;
+        }
+        else
+        {
+            plusButton.interactable = true;
+        }
+
+        if (bettingMoney <= 0)
+        {
+            minusButton.interactable = false;
+        }
+        else
+        {
+            minusButton.interactable = true;
+        }
+        moneyText.text = money.ToString();
+        betText.text = bettingMoney.ToString();
     }
 }

@@ -5,22 +5,41 @@ using UnityEngine.UI;
 
 public class BttnActivation : MonoBehaviour
 {
-    public GameObject button;
-    public int waitTime;
+    public GameObject buttons;
     public Button thisButton;
+    public Button plus;
+    public Button minus;
 
     public void OnEnable()
     {
         thisButton.interactable = true;
     }
+
     public void ButtonPress()
     {
         thisButton.interactable = false;
-        Invoke("ActivateBttn", waitTime);
+        ActivateBttn();
     }
+
     public void ActivateBttn()
     {
-       button.SetActive(true);
-       gameObject.SetActive(false);
+        buttons.SetActive(true);
+        gameObject.SetActive(false);
+    }
+
+    public void StopPress()
+    {
+        // Desactivar botones de apuesta inmediatamente
+        plus.enabled = false;
+        minus.enabled= false;
+
+        // Si quieres reactivar los botones después de que caigan los números, puedes usar un tiempo basado en la duración de la animación
+        Invoke("ReactivateButtons", 5);  // Cambia el 5 por la duración de la animación.
+    }
+
+    private void ReactivateButtons()
+    {
+        plus.enabled = true;
+        minus.enabled= true;
     }
 }

@@ -5,8 +5,8 @@ using TMPro;  // Para usar TextMeshPro
 
 public class Result : MonoBehaviour
 {
-    public TMP_Text[] numberTexts;  // Referencia a los textos que contienen los números generados
-    public TMP_Text resultText;     // Texto que mostrará el resultado
+    public TMP_Text[] numberTexts;
+    public TMP_Text resultText;
     public int maxRepetitions;
 
     // Método que cuenta cuántas veces se repite el número que más veces aparece

@@ -14,6 +14,8 @@ public class SetMoney : MonoBehaviour
     public float money = 100;
     public float bettingMoney = 0;
 
+    public GameObject losePanel;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +35,7 @@ public class SetMoney : MonoBehaviour
         {
             case 0:
                 money -= bettingMoney;
+                
                 break;
             case 1:
                 money -= (bettingMoney * 0.5f);
@@ -52,19 +55,27 @@ public class SetMoney : MonoBehaviour
             break;
 
         }
-        
+        bettingMoney = 0;
 
     }
 
     public void PlusButton()
     {
-        bettingMoney += 5;
-        money -= 5;
+        if (money <= 0)
+        {
+            money = 0;
+            return;
+        }
+        else
+        {
+            bettingMoney += 5;
+            money -= 5;
+        }
     }
 
     public void MinusButton()
     {
-        if (bettingMoney < 0)
+        if (bettingMoney <= 0)
         {
             return;
         }
@@ -94,7 +105,12 @@ public class SetMoney : MonoBehaviour
         {
             minusButton.interactable = true;
         }
-        moneyText.text = money.ToString();
-        betText.text = bettingMoney.ToString();
+        moneyText.text = "$" + money.ToString();
+        betText.text = "$" + bettingMoney.ToString();
+
+        if (bettingMoney <= 0 && money <= 0)
+        {
+            losePanel.SetActive(true);
+        }
     }
 }

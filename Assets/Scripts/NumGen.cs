@@ -18,7 +18,7 @@ public class NumGen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        slotNum.text = Random.Range(0, 9).ToString();
+        slotNum.text = Random.Range(1, 5).ToString();
 
     }
     public void offEnabled()

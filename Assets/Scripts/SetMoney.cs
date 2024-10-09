@@ -19,13 +19,12 @@ public class SetMoney : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Encuentra el script Result en un objeto hijo o hermano
         result = transform.parent.GetComponentInChildren<Result>();
     }
 
     public void BttnPress()
     {
-        Invoke("showText", 5);
+        Invoke("showText", 3);
     }
 
     // Update is called once per frame
@@ -34,21 +33,18 @@ public class SetMoney : MonoBehaviour
         switch(result.maxRepetitions)
         {
             case 0:
-                money -= bettingMoney;
-                
+                // Pierdes tu dinero
                 break;
             case 1:
-                money -= (bettingMoney * 0.5f);
+                // Te regresa la mitad
+                money += (bettingMoney/2);
                 break;
             case 2:
-                money -= ((bettingMoney * 0.5f));
-                break;
-            case 3:
-                break;
-            case 4:
+                // Te regresa  tu dinero
                 money += bettingMoney;
                 break;
-            case 5:
+            case 3:
+                // Te regresa el dinero y además ganas lo que apostaste
                 money += bettingMoney * 2;
                 break;
             default:

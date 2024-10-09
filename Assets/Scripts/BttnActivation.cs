@@ -48,9 +48,8 @@ public class BttnActivation : MonoBehaviour
         plus.enabled = false;
         minus.enabled= false;
 
-        // Si quieres reactivar los botones después de que caigan los números, puedes usar un tiempo basado en la duración de la animación
-        Invoke("ReactivateButtons", 5);  // Cambia el 5 por la duración de la animación.
-        Invoke("ActivateBttn", 5);  // Cambia el 5 por la duración de la animación.
+        Invoke("ReactivateButtons", 3); 
+        Invoke("ActivateBttn", 3);  
     }
 
     private void ReactivateButtons()

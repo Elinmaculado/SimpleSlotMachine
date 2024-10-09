@@ -17,7 +17,7 @@ public class Result : MonoBehaviour
 
     public void ButtonPress()
     {
-        Invoke("CheckNumbers", 5);
+        Invoke("CheckNumbers", 3);
     }
 
     public void CheckNumbers()
@@ -58,11 +58,11 @@ public class Result : MonoBehaviour
         // Muestra el resultado (cantidad de veces que se repite el número más repetido)
         if (maxRepetitions <= 1)
         {
-            resultText.text = "Máx. repeticiones: 0";
+            resultText.text = "Reps: 0";
         }
         else
         {
-            resultText.text = "Máx. repeticiones: " + maxRepetitions;
+            resultText.text = "Reps: " + maxRepetitions;
 
         }
     }

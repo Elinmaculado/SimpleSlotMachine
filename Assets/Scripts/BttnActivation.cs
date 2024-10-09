@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,19 @@ public class BttnActivation : MonoBehaviour
     public Button plus;
     public Button minus;
 
+    public TMP_Text betText;
+
+    private void Update()
+    {
+        if (betText.text == "$0")
+        {
+            thisButton.interactable = false;
+        }
+        else
+        {
+            thisButton.interactable = true;
+        }
+    }
     public void OnEnable()
     {
         thisButton.interactable = true;

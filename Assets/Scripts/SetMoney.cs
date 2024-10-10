@@ -52,6 +52,7 @@ public class SetMoney : MonoBehaviour
 
         }
         bettingMoney = 0;
+        Debug.Log(result.maxRepetitions);
 
     }
 

@@ -35,10 +35,10 @@ public class SetMoney : MonoBehaviour
             case 0:
                 // Pierdes tu dinero
                 break;
-            case 1:
+            //case 1:
                 // Te regresa la mitad
-                money += (bettingMoney/2);
-                break;
+                //money += (bettingMoney/2);
+                //break;
             case 2:
                 // Te regresa  tu dinero
                 money += bettingMoney;
